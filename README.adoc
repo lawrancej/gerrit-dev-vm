@@ -4,13 +4,15 @@ This is a VM configuration for developing https://code.google.com/p/gerrit/[Gerr
 
 == Usage
 
-Run the following commands (after installing vagrant) to get a development environment for Gerrit.
-
+. http://www.vagrantup.com/downloads.html[Install Vagrant]
+. Run these commands. If on Windows, right click 'Run As Administrator' for Git Bash or the command prompt.
++
 ----
 vagrant up
 vagrant ssh
 cd /vagrant/gerrit
 buck build all
+yes | java -jar buck-out/gen/gerrit.war init -d ../gerrit_testsite
+java -jar buck-out/gen/gerrit.war daemon -d ../gerrit_testsite
 ----
-
-NOTE: This does not work (yet).
+. Fire up http://localhost:8080
