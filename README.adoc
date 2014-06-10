@@ -1,0 +1,16 @@
+= Gerrit Development VM
+
+This is a VM configuration for developing https://code.google.com/p/gerrit/[Gerrit] using http://www.vagrantup.com/[Vagrant].
+
+== Usage
+
+Run the following commands (after installing vagrant) to get a development environment for Gerrit.
+
+----
+vagrant up
+vagrant ssh
+cd /vagrant/gerrit
+buck build all
+----
+
+NOTE: This does not work (yet).
