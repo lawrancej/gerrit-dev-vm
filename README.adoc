@@ -2,17 +2,32 @@
 
 This is a VM configuration for developing https://code.google.com/p/gerrit/[Gerrit] using http://www.vagrantup.com/[Vagrant].
 
-== Usage
+== Setup
 
-. http://www.vagrantup.com/downloads.html[Install Vagrant]
-. Run these commands. If on Windows, right click 'Run As Administrator' for Git Bash or the command prompt.
+. Clone this repository
 +
 ----
+git clone https://github.com/lawrancej/gerrit-dev-vm.git
+----
+. http://www.vagrantup.com/downloads.html[Install Vagrant]
+. Run these commands
++
+IMPORTANT: If on Windows, close Git Bash, then right click Git Bash and select 'Run As Administrator', otherwise it won't work.
++
+----
+# On your host operating system (e.g., in Git Bash), do...
 vagrant up
 vagrant ssh
+# Okay, now we're in the guest OS (ubuntu)...
 cd /vagrant/gerrit
-buck build all
+buck build gerrit
 yes | java -jar buck-out/gen/gerrit.war init -d ../gerrit_testsite
 java -jar buck-out/gen/gerrit.war daemon -d ../gerrit_testsite
 ----
 . Fire up http://localhost:8080
+
+NOTE: +buck+ may break randomly. Do +buck clean+ and try building again.
+
+== Development
+In your host operating system, +gerrit+ will appear as a subfolder of this repository (but this repository intentionally ignores it).
+Changes you make to subfolder +gerrit+ in your host operating system will be visible immediately in +/vagrant/gerrit+.
