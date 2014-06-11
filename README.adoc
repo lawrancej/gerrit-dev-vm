@@ -31,3 +31,4 @@ NOTE: +buck+ may break randomly. Do +buck clean+ and try building again.
 == Development
 In your host operating system, +gerrit+ will appear as a subfolder of this repository (but this repository intentionally ignores it).
 Changes you make to subfolder +gerrit+ in your host operating system will be visible immediately in +/vagrant/gerrit+.
+Until MsysGit supports symbolic links properly, you'll need to commit in the guest OS (within vagrant).
