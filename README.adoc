@@ -26,7 +26,7 @@ java -jar buck-out/gen/gerrit.war daemon -d ../gerrit_testsite
 ----
 . Fire up http://localhost:8080
 
-NOTE: +buck+ may break randomly. Do +buck clean+ and try building again.
+NOTE: If +buck+ experiences a problem, do +buck clean+ and try building again.
 
 == Development
 In your host operating system, +gerrit+ will appear as a subfolder of this repository (but this repository intentionally ignores it).
